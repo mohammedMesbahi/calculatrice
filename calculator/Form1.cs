@@ -20,102 +20,103 @@ namespace calculator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            lblInput.Text += button1.Text; 
+            userInputText.Text += button1.Text; 
         }
         
         private void button11_Click(object sender, EventArgs e)
         {
-            lblInput.Text = "";
+            userInputText.Text = "";
+            lblResult.Text = "";
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            lblInput.Text = lblInput.Text.Substring(0, lblInput.Text.Length - 1);
+            userInputText.Text = userInputText.Text.Substring(0, userInputText.Text.Length - 1);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            lblInput.Text += button2.Text;
+            userInputText.Text += button2.Text;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            lblInput.Text += button3.Text;
+            userInputText.Text += button3.Text;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            lblInput.Text += button4.Text;
+            userInputText.Text += button4.Text;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            lblInput.Text += button5.Text;
+            userInputText.Text += button5.Text;
 
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            lblInput.Text += button6.Text;
+            userInputText.Text += button6.Text;
 
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            lblInput.Text += button7.Text;
+            userInputText.Text += button7.Text;
 
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            lblInput.Text += button8.Text;
+            userInputText.Text += button8.Text;
 
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            lblInput.Text += button9.Text;
+            userInputText.Text += button9.Text;
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            lblInput.Text += button10.Text;
+            userInputText.Text += button10.Text;
 
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
-            lblInput.Text += button16.Text;
+            userInputText.Text += button16.Text;
 
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
-            lblInput.Text += button15.Text;
+            userInputText.Text += button15.Text;
 
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
-            lblInput.Text += button14.Text;
+            userInputText.Text += button14.Text;
 
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-            lblInput.Text += button13.Text;
+            userInputText.Text += button13.Text;
 
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
-            lblInput.Text += button19.Text;
+            userInputText.Text += button19.Text;
 
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
-            lblInput.Text += button17.Text;
+            userInputText.Text += button17.Text;
 
         }
 
@@ -123,22 +124,32 @@ namespace calculator
         {
             DataTable dt = new DataTable();
             try{
-                var v = dt.Compute(lblInput.Text, "");
-                lblInput.Text = v.ToString();
+                var v = dt.Compute(userInputText.Text, "");
+                lblResult.Text = v.ToString();
             }
             catch (SyntaxErrorException ex)
             {
-                lblInput.Text = "Error";
+                lblResult.Text = "Error";
             }
             catch(InvalidOperationException ex)
             {
-                lblInput.Text = "Error";
+                lblResult.Text = "Error";
             }
             catch(EvaluateException ex)
             {
-                lblInput.Text = "Error";
+                lblResult.Text = "Error";
             }
             
+        }
+
+        private void userInputText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

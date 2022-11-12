@@ -29,6 +29,7 @@ namespace calculator
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -39,16 +40,18 @@ namespace calculator
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.lblInput = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.btnDel = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
+            this.btnEquals = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
+            this.userInputText = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.lblResult = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -171,22 +174,6 @@ namespace calculator
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // lblInput
-            // 
-            this.lblInput.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblInput.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.lblInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInput.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblInput.Location = new System.Drawing.Point(5, 9);
-            this.lblInput.MaximumSize = new System.Drawing.Size(397, 128);
-            this.lblInput.Name = "lblInput";
-            this.lblInput.Size = new System.Drawing.Size(397, 128);
-            this.lblInput.TabIndex = 10;
-            this.lblInput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblInput.UseWaitCursor = true;
-            // 
             // button11
             // 
             this.button11.Location = new System.Drawing.Point(5, 213);
@@ -198,16 +185,17 @@ namespace calculator
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
-            // button12
+            // btnDel
             // 
-            this.button12.Location = new System.Drawing.Point(5, 140);
-            this.button12.Name = "button12";
-            this.button12.Padding = new System.Windows.Forms.Padding(10);
-            this.button12.Size = new System.Drawing.Size(210, 67);
-            this.button12.TabIndex = 12;
-            this.button12.Text = "UNDO";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.btnDel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnDel.Location = new System.Drawing.Point(5, 140);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Padding = new System.Windows.Forms.Padding(10);
+            this.btnDel.Size = new System.Drawing.Size(210, 67);
+            this.btnDel.TabIndex = 12;
+            this.btnDel.Text = "DEL";
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.button12_Click);
             // 
             // button13
             // 
@@ -263,16 +251,16 @@ namespace calculator
             this.button17.UseVisualStyleBackColor = true;
             this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
-            // button18
+            // btnEquals
             // 
-            this.button18.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button18.Location = new System.Drawing.Point(321, 341);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(81, 161);
-            this.button18.TabIndex = 18;
-            this.button18.Text = "=";
-            this.button18.UseVisualStyleBackColor = false;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.btnEquals.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnEquals.Location = new System.Drawing.Point(321, 341);
+            this.btnEquals.Name = "btnEquals";
+            this.btnEquals.Size = new System.Drawing.Size(81, 161);
+            this.btnEquals.TabIndex = 18;
+            this.btnEquals.Text = "=";
+            this.btnEquals.UseVisualStyleBackColor = false;
+            this.btnEquals.Click += new System.EventHandler(this.button18_Click);
             // 
             // button19
             // 
@@ -284,22 +272,57 @@ namespace calculator
             this.button19.UseVisualStyleBackColor = true;
             this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
+            // userInputText
+            // 
+            this.userInputText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userInputText.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.userInputText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userInputText.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.userInputText.Location = new System.Drawing.Point(5, 12);
+            this.userInputText.Name = "userInputText";
+            this.userInputText.Size = new System.Drawing.Size(399, 48);
+            this.userInputText.TabIndex = 20;
+            this.userInputText.TextChanged += new System.EventHandler(this.userInputText_TextChanged);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // lblResult
+            // 
+            this.lblResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResult.Location = new System.Drawing.Point(5, 68);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(397, 69);
+            this.lblResult.TabIndex = 22;
+            this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Form1
             // 
+            this.AcceptButton = this.btnEquals;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(406, 514);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.CancelButton = this.btnDel;
+            this.ClientSize = new System.Drawing.Size(408, 510);
+            this.Controls.Add(this.lblResult);
+            this.Controls.Add(this.userInputText);
             this.Controls.Add(this.button19);
-            this.Controls.Add(this.button18);
+            this.Controls.Add(this.btnEquals);
             this.Controls.Add(this.button17);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button15);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button13);
-            this.Controls.Add(this.button12);
+            this.Controls.Add(this.btnDel);
             this.Controls.Add(this.button11);
-            this.Controls.Add(this.lblInput);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
@@ -310,10 +333,14 @@ namespace calculator
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "basic calculator";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -329,16 +356,18 @@ namespace calculator
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Label lblInput;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button btnEquals;
         private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.TextBox userInputText;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label lblResult;
     }
 }
 
